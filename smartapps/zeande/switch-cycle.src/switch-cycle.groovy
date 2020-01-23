@@ -13,11 +13,11 @@ definition(
 
 preferences {
     section("Trigger this switch...") {
-        input "switch1", "capability.switch", title: "Which switch?", multiple: true
+        input "switch1", "capability.switch", title: "Which switch?", multiple: true, required: true
     }
     
     section("Cycle duration...") {
-    	input "period", "number", title: "Period in minutes?"
+    	input "period", "number", title: "Period in minutes?", required: true, range:"1..59"
     }
 }
 
@@ -38,7 +38,7 @@ def updated()
 def handler()
 {
     unschedule(toggle)
-    schedule("0 0/" + period + " * * * ?", toggle)
+    schedule("0 0/${period} * * * ?", toggle)
 }
 
 def toggle()
