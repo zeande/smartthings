@@ -17,7 +17,7 @@ preferences {
     }
     
     section("Cycle duration...") {
-    	input "period", "int", title: "Period in minutes?"
+    	input "period", "number", title: "Period in minutes?"
     }
 }
 
