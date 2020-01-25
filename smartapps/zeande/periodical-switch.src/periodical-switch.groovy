@@ -1,17 +1,17 @@
-/**
- *  Toggles the specified switch every n minutes where n is a specified period between 1 and 60.
- */
 definition(
     name: "Periodical Switch",
     namespace: "zeande",
     author: "zeande",
     description: "Manages power state to the specified switch given a specified start and stop time as well as power-off settings.",
-    category: "Terrarium",
+    category: "Convenience",
     iconUrl: "https://s3.amazonaws.com/smartapp-icons/Meta/light_motion-outlet.png",
     iconX2Url: "https://s3.amazonaws.com/smartapp-icons/Meta/light_motion-outlet@2x.png"
 )
 
 preferences {
+	section("Choose an icon") {
+    	icon(title: "Icon", required: true)
+    }
     section("Trigger this switch...") {
         input "switch1", "capability.switch", title: "Which switch?", multiple: true, required: true
     }
