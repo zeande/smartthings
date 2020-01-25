@@ -56,7 +56,7 @@ def startDay()
     flipSwitch(true)
     if (durationOn > 0)
     {
-        runIn(durationOn, toggle)
+        runIn(durationOn * 60, toggle)
     }
 }
 
