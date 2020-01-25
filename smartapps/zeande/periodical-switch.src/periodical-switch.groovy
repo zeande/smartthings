@@ -29,25 +29,30 @@ preferences {
 
 def installed()
 {
-    flipSwitch(timeOfDayIsBetween(start, stop, new Date(), location.timeZone))
     handler()
 }
 
 def updated()
 {
-    flipSwitch(timeOfDayIsBetween(start, stop, new Date(), location.timeZone))
     handler()
 }
 
 def handler()
 {
     unschedule()
+    
     schedule(start, startDay)
     schedule(stop, stopDay)
+    
+    if (timeOfDayIsBetween(start, stop, new Date(), location.timeZone))
+    {
+        startDay()
+    }
 }
 
 def startDay()
 {
+    unschedule(toggle)
     flipSwitch(true)
     if (durationOn > 0)
     {
