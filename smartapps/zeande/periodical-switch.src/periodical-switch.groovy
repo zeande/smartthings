@@ -9,16 +9,16 @@ definition(
 )
 
 preferences {
-	section("Choose an icon") {
-    	icon(title: "Icon", required: true)
+    section("Choose an icon") {
+        icon(title: "Icon", required: true)
     }
     section("Trigger this switch...") {
         input "switch1", "capability.switch", title: "Which switch?", multiple: true, required: true
     }
     
     section("Start and stop times") {
-    	input "start", "time", title: "Start time?", required: true
-    	input "stop", "time", title: "Stop time?", required: true
+        input "start", "time", title: "Start time?", required: true
+        input "stop", "time", title: "Stop time?", required: true
     }
 
     section("On/Off cycle") {
