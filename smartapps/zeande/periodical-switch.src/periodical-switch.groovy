@@ -66,7 +66,7 @@ def stopDay()
 def toggle()
 {
     flipSwitch(!state.motion)
-    runIn(state.motion ? durationOff : durationOn, toggle)
+    runIn((state.motion ? durationOff : durationOn) * 60, toggle)
 }
 
 def flipSwitch(turnOn)
