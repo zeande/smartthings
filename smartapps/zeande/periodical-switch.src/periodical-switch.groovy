@@ -20,35 +20,55 @@ preferences {
     	input "start", "time", title: "Start time?", required: true
     	input "stop", "time", title: "Stop time?", required: true
     }
+
+    section("On/Off cycle") {
+        input "durationOn", "number", title: "On duration (minutes)?", required: false, range: "0..480"
+        input "durationOff", "number", title: "Off duration (minutes)?", required: false, range: "0..480" 
+    }
 }
 
 def installed()
 {
-    switch1.off()
-    state.active = false
+    flipSwitch(timeOfDayIsBetween(start, stop, new Date(), location.timeZone))
     handler()
 }
 
 def updated()
 {
-    switch1.off()
-    state.active = false
+    flipSwitch(timeOfDayIsBetween(start, stop, new Date(), location.timeZone))
     handler()
 }
 
 def handler()
 {
+    unschedule()
+    schedule(start, startDay)
+    schedule(stop, stopDay)
+}
+
+def startDay()
+{
+    flipSwitch(true)
+    if (durationOn > 0)
+    {
+        runIn(durationOn, toggle)
+    }
+}
+
+def stopDay()
+{
     unschedule(toggle)
-    schedule("0 0/${period} * * * ?", toggle)
+    flipSwitch(false)
 }
 
 def toggle()
 {
-    if (state.motion) {
-        state.motion = false
-        switch1.off()
-    } else {
-        state.motion = true
-        switch1.on()
-    }
+    flipSwitch(!state.motion)
+    runIn(state.motion ? durationOff : durationOn, toggle)
+}
+
+def flipSwitch(turnOn)
+{
+    state.motion = turnOn
+    turnOn ? switch1.on() : switch1.off()
 }
