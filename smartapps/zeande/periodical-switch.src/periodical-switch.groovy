@@ -44,7 +44,7 @@ def handler()
     schedule(start, startDay)
     schedule(stop, stopDay)
     
-    timeOfDayIsBetween(start, stop, new Date(), location.timeZone)) ? startDay() : stopDay()
+    timeOfDayIsBetween(start, stop, new Date(), location.timeZone) ? startDay() : stopDay()
 }
 
 def startDay()
