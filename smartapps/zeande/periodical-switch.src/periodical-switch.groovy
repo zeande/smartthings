@@ -10,7 +10,7 @@ definition(
 
 preferences {
     section("Choose an icon") {
-        icon(title: "Icon", required: true)
+        icon(title: "Icon", required: false)
     }
     section("Trigger this switch...") {
         input "switch1", "capability.switch", title: "Which switch?", multiple: true, required: true
