@@ -12,7 +12,7 @@
  *
  */
 metadata {
-    definition (name: "Simulated Alexa Switch", namespace: "zeande", author: "zeande") {
+    definition (name: "Simulated Alexa Switch", namespace: "alexaintegration", author: "zeande") {
         capability "Switch"
         capability "Sensor"
         capability "Motion Sensor"
