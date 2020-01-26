@@ -3,7 +3,7 @@
  */
 definition(
     name: "Switch Cycle",
-    namespace: "zeande",
+    namespace: "hydroponics",
     author: "zeande",
     description: "Cycles simulated switch periodically",
     category: "Convenience",

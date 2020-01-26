@@ -1,6 +1,6 @@
 definition(
     name: "Periodical Switch",
-    namespace: "zeande",
+    namespace: "hydroponics",
     author: "zeande",
     description: "Manages power state to the specified switch given a specified start and stop time as well as power-off settings.",
     category: "Convenience",
