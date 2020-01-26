@@ -25,20 +25,19 @@ preferences {
 
 def installed()
 {
-    switch1.off()
-    state.active = false
     handler()
 }
 
 def updated()
 {
-    switch1.off()
-    state.active = false
     handler()
 }
 
 def handler()
 {
+    switch1.off()
+    state.active = false
+
     unschedule(toggle)
     schedule("0 0/${period} * * * ?", toggle)
 }
