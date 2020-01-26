@@ -1,11 +1,13 @@
 /**
  *  Toggles the specified switch every n minutes where n is a specified period between 1 and 60.
+ *  Note: This is really just a specific case of the periodical switch that has equal on and off
+ *  durations. Keeping it here for simplicity.
  */
 definition(
     name: "Switch Cycle",
     namespace: "hydroponics",
     author: "zeande",
-    description: "Cycles simulated switch periodically",
+    description: "Cycles simulated switch periodically.",
     category: "Convenience",
     iconUrl: "https://s3.amazonaws.com/smartapp-icons/Meta/light_motion-outlet.png",
     iconX2Url: "https://s3.amazonaws.com/smartapp-icons/Meta/light_motion-outlet@2x.png"
